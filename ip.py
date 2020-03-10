@@ -13,9 +13,7 @@ app=Flask(__name__)
 
 @app.route('/')
 def ip():
-    remove_ip=request.host.split(':')[0]
-    print(request.headers.get('X-Forwarded-For'))
-    return remove_ip
+    return request.headers.get('X-Forwarded-For')
 
 
 if __name__ == '__main__':
