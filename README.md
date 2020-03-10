@@ -14,7 +14,7 @@
 ```bash
 server {
     listen 80;
-    server_name Internet_Name;
+    server_name ${Internet_Name};
     default_type 'text/html';
     charset utf-8;
     underscores_in_headers on;
@@ -23,7 +23,7 @@ server {
             return 301 https://$server_name$request_uri;
     }
     location / {
-    proxy_pass http://47.94.139.224:5000;
+    proxy_pass http://${Container_IP}:${HOST_PORT};
     proxy_set_header   Host                      $host;
     proxy_set_header   X-Forwarded-Proto        $scheme;
     proxy_set_header   Cookie                 $http_cookie;
