@@ -4,10 +4,10 @@
 ###### Build Image
 ```bash
 # Generate Image
-~ ] docker built -t ${IMAGE_NAME}:${IMAGE_VERSION} ${PROJECT_DIR}
+~ ] docker build -t ${IMAGE_NAME}:${IMAGE_VERSION} ${PROJECT_DIR}
 
 # Run Container
-~ ] docker run -itd --rm -P ${HOST_PORT}:5000 ${IMAGE_NAME}:${IMAGE_VERSION}
+~ ] docker run -itd --restart always -P ${HOST_PORT}:5000 ${IMAGE_NAME}:${IMAGE_VERSION}
 ```
 
 ###### Config Nginx
