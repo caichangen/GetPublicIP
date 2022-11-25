@@ -19,11 +19,8 @@ server {
     charset utf-8;
     underscores_in_headers on;
 
-    if ($http_user_agent !~ curl) {
-            return 301 https://$server_name$request_uri;
-    }
     location / {
-    proxy_pass http://${Container_IP}:${HOST_PORT};
+    proxy_pass http://127.0.0.1:${HOST_PORT};
     proxy_set_header   Host                      $host;
     proxy_set_header   X-Forwarded-Proto        $scheme;
     proxy_set_header   Cookie                 $http_cookie;
